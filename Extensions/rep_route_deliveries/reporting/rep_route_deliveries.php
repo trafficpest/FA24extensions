@@ -65,17 +65,17 @@ function no_geocode_error($branch_id)
 
   $url1 = $path_to_root.'/modules/additional_fields/manage/add_customers.php?'
     .'debtor_no='.$branch['debtor_no']
-    .'&branch_code='.$branch['debtor_no'];
+    .'&branch_code='.$branch['branch_code'];
 
   $url2 = $path_to_root.'/sales/manage/customer_branches.php?'
     .'SelectedBranch='.$branch_id;
 
   display_error("No Geocode Found" ."<br>"
     .'<a href="'.$url1.'">'
-    ."Customer Name: ".$cust['debtor_ref'] ."<br>" ."</a>"
+    ."Customer Name:"."</a> ".$cust['debtor_ref'] ."<br>" 
     ."Branch Name: ".$branch['branch_ref'] ."<br>" 
     .'<a href="'.$url2.'">'
-    ."Mailing Address: ".$branch['br_post_address'] ."</a>");
+    ."Mailing Address:"."</a> ".$branch['br_post_address'] );
 }
 
 print_deliveries();
