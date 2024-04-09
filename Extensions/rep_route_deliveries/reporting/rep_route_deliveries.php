@@ -24,6 +24,7 @@ include_once($path_to_root . "/includes/session.inc");
 include_once($path_to_root . "/includes/date_functions.inc");
 include_once($path_to_root . "/includes/data_checks.inc");
 include_once($path_to_root . "/sales/includes/sales_db.inc");
+include_once($path_to_root . "/admin/db/shipping_db.inc");
 
 //------------------------------------------------------------------------------
 function get_delivery_date_range($from, $to, $route)
