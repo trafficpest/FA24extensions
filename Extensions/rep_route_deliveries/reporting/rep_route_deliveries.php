@@ -383,6 +383,17 @@ function print_deliveries()
 				$rep->TextColLines(1, 3, $memo, -2);
       }
 
+      $rep->row = $rep->bottomMargin + (11.5 * $rep->lineHeight);
+
+      $shipper =  get_shipper($myrow['ship_via']);  
+      $rep->NewLine();
+      $rep->TextCol(0, 5, "Delivered By: ".$shipper['contact']." ".$shipper['phone'], -2);
+      $rep->NewLine();
+      $rep->TextCol(0, 5, ($shipper['shipper_name']), -2);
+      $rep->NewLine();
+      $rep->TextCol(0, 5, ($shipper['address']), -2);
+
+
    			$DisplaySubTot = number_format2($SubTotal,$dec);
 
     		$rep->row = $rep->bottomMargin + (15 * $rep->lineHeight);

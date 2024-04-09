@@ -24,6 +24,7 @@ include_once($path_to_root . "/includes/session.inc");
 include_once($path_to_root . "/includes/date_functions.inc");
 include_once($path_to_root . "/includes/data_checks.inc");
 include_once($path_to_root . "/sales/includes/sales_db.inc");
+include_once($path_to_root . "/admin/db/shipping_db.inc");
 
 //------------------------------------------------------------------------------
 function get_delivery_date_range($from, $to, $route)
@@ -293,7 +294,6 @@ function print_deliveries()
 		// Changes have been submitted and pending in git
 		//	if ($shipper && $myrow['ship_via'] != $shipper)
 		//	  continue;
-   
 		$branch = get_branch($myrow["branch_code"]);
 		$sales_order = get_sales_order_header($myrow["order_"], ST_SALESORDER); 
 		if ($email == 1)
@@ -365,12 +365,23 @@ function print_deliveries()
 			$rep->TextCol(0, 5, "Route Order: ".($waypoint_index[$i]+1), -2);
 			$i++;
 		}
+
 		$memo = get_comments_string(ST_CUSTDELIVERY, $row['trans_no']);
 		if ($memo != "")
 		{
 			$rep->NewLine();
 			$rep->TextColLines(1, 3, $memo, -2);
 		}
+
+		$rep->row = $rep->bottomMargin + (11.5 * $rep->lineHeight);
+
+    $shipper =  get_shipper($myrow['ship_via']);  
+    $rep->NewLine();
+    $rep->TextCol(0, 5, "Delivered By: ".$shipper['contact']." ".$shipper['phone'], -2);
+    $rep->NewLine();
+    $rep->TextCol(0, 5, ($shipper['shipper_name']), -2);
+    $rep->NewLine();
+    $rep->TextCol(0, 5, ($shipper['address']), -2);
 
 		$DisplaySubTot = number_format2($SubTotal,$dec);
 
