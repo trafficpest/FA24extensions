@@ -128,7 +128,7 @@ class email {
 	}
 
 	public function send() {
-		$this->phpmailerCharSet = $this->charset;
+		$this->phpmailer->CharSet = $this->charset;
 
 		//send the message, check for errors
 		if (!$this->phpmailer->send()) {
