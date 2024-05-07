@@ -1,0 +1,116 @@
+* {
+ // box-sizing: border-box;
+}
+
+body {
+  background-color: lightgrey;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  //display: flex;
+  justify-content: center;
+  align-content: center;
+  // height: 100vh;
+  // width: 100vw;
+}
+
+#strikeout-button-container {
+  text-align: center;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  background-color: white;
+  margin: auto;
+  max-width: 480px;
+  padding: 15px;
+  border: 1px;
+  border-radius: 5px;
+}
+
+#strikeout-balance {
+  display: inline-flex;
+  width: 100%;
+  padding: 3% 3%;
+  justify-content: space-evenly;
+  font-weight: bold;
+}
+
+#strikeout-amount {
+  display: inline-flex;
+  width: 100%;
+  justify-content: space-evenly;
+  font-weight: bold;
+} 
+
+#strikeout-amount input[type="submit"] {
+  background-color: #303030;
+  color: white;
+  padding: 3% 3%;
+  border: none;
+  border-radius: 4px;
+  width: 25%;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+#strikeout-amount input[type="number"] {
+padding: 10px;
+border-radius: 4px;
+border: 1px solid #ccc;
+width: 25%;
+margin-bottom: 15px;
+font-size: 16px;
+box-sizing: border-box;
+}
+
+#lnbits-button-container {
+  text-align: center;
+  width: 100%;
+  max-width: 749px;
+}
+
+#lnbits-button-container button {
+  width: 100%;
+  padding: 10px; 
+  border: 0px; 
+  border-radius: 5px; 
+  background-color: seagreen; 
+}
+
+#lnbits-button-container p {
+  color: grey; 
+  text-align: center; 
+  font-size: 0.85em; 
+  font-style: italic;
+}
+
+#lnbits-button-container a {
+  color: black; 
+  font-weight: bold; 
+  font-size: 1.0em;
+}
+
+#strike-button-container {
+  text-align: center;
+  width: 100%;
+  max-width: 749px;
+}
+
+#strike-button-container button {
+  width: 100%;
+  padding: 10px; 
+  border: 0px; 
+  border-radius: 5px; 
+  background-color: seagreen; 
+}
+
+#strike-button-container p {
+  color: grey; 
+  text-align: center; 
+  font-size: 0.85em; 
+  font-style: italic;
+}
+
+#strike-button-container a {
+  color: black; 
+  font-weight: bold; 
+  font-size: 1.0em;
+}

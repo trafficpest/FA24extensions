@@ -1,0 +1,12 @@
+Package: strikeout
+Name: StrikeOut
+Description: Payment intergration for FA Stripe, PayPal, Bitcoin
+Author: Jason March <jason@trafficpestsolutions.com> 
+Maintenance: Jason March
+Homepage: strikeoutpay.com
+Depends: 
+InstallPath: modules/strikeout
+Type: extension
+Filename: strikeout-2.4.0-1
+Version: 2.4.0-1
+
