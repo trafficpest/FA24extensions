@@ -29,13 +29,16 @@ class hooks_route_deliveries extends hooks {
           $app->add_rapp_function(0, _("Route Delivery Config"),
             $path_to_root."/modules/".$this->module_name."/manage/settings.php?", 
             'SA_MANAGE_GPS_CONFIG', MENU_SETTINGS);
+          $app->add_lapp_function(1, _("Manage Shipping GPS"), 
+            $path_to_root.'/modules/'.$this->module_name.'/manage/shipper_settings.php', 
+            'SA_MANAGE_GPS', MENU_SETTINGS);
           break;
-            case 'orders':
-                $app->add_lapp_function(2, _("Manage Customer GPS"), 
-                    $path_to_root.'/modules/'.$this->module_name.'/manage/cust_gps.php', 
-                    'SA_MANAGE_GPS', MENU_ENTRY);
-                break;
-        }
+          case 'orders':
+          $app->add_lapp_function(2, _("Manage Customer GPS"), 
+            $path_to_root.'/modules/'.$this->module_name.'/manage/cust_gps.php', 
+            'SA_MANAGE_GPS', MENU_ENTRY);
+          break;
+      }
     }
 
     function install_access() {

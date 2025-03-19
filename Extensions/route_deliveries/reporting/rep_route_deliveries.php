@@ -24,6 +24,7 @@ include_once($path_to_root . "/includes/session.inc");
 include_once($path_to_root . "/includes/date_functions.inc");
 include_once($path_to_root . "/includes/data_checks.inc");
 include_once($path_to_root . "/sales/includes/sales_db.inc");
+include_once($path_to_root . "/modules/route_deliveries/includes/route_delivery.inc");
 
 //------------------------------------------------------------------------------
 function get_delivery_date_range($from, $to, $route)
@@ -147,12 +148,15 @@ function print_deliveries()
     $branch = [];
     $rows = [];
 
-    // Add home location if required
-    if ($remove_home == 0) {
-      $geocodes[] = $route_config['home_point_long'].','
-                      .$route_config['home_point_lat'];
-    }
-
+    // Add home location if required                                                
+    if ($remove_home == 0) {   
+      if ($shipper && ($shipper_settings = get_route_delivery_shipper($shipper))){
+        $geocodes[] = $shipper_settings['longitude'] . ',' . $shipper_settings['latitude'];
+      }  else {  
+        $geocodes[] = $route_config['home_point_long'] . ',' . $route_config['home_point_lat'];   
+      }
+    }  
+    
     // Fetch deliveries within the specified range
     $range = get_delivery_date_range($from, $to, $route);
 
@@ -257,8 +261,6 @@ function print_deliveries()
 				continue;
       $myrow = get_customer_trans($row['trans_no'], ST_CUSTDELIVERY);
 
-      // Shipper ie. Driver requires modified class and function in core.
-      // Changes have been submitted and pending in git
 			if ($shipper && $myrow['ship_via'] != $shipper)
        continue;
    

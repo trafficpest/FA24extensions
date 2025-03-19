@@ -74,8 +74,19 @@ table_section_title(_("US Census"));
 label_row(_("Geocode Help:"), '<a href="' . $path_to_root 
   . '/modules/route_deliveries/manage/batch_geocode.php">Batch Geocode Update'
   .'</a>');
+label_row(_("Calendar Import:"), '<a href="' . $path_to_root 
+  . '/modules/route_deliveries/manage/cal_import_page.php">iCal import'
+  .'</a>');
+label_row(_("Recurrent Transactions:"), '<a href="' . $path_to_root 
+  . '/modules/route_deliveries/manage/recurrent_tx.php">Add / Edit'
+  .'</a>');
+label_row(_("Log Inquiry:"), '<a href="' . $path_to_root 
+  . '/modules/route_deliveries/manage/delivery_log_inquiry.php">View'
+  .'</a>');
+label_row(_("Invoice Deliveries:"), '<a href="' . $path_to_root 
+  . '/modules/route_deliveries/manage/invoice_deliveries.php?OutstandingOnly=1">View'
+  .'</a>');
 end_outer_table(1);
-
 div_start('controls');
 submit_center('save', _("Save Settings"), true, '', 'default');
 div_end();
